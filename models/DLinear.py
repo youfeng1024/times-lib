@@ -108,31 +108,3 @@ class Model(nn.Module):
             dec_out = self.classification(x_enc)
             return dec_out  # [B, N]
         return None
-
-if __name__ == "__main__":
-    import sys
-    import os
-
-    # Assuming the layers directory is in the parent directory of the current file
-    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-    class Configs:
-        task_name = 'long_term_forecast'
-        seq_len = 96
-        pred_len = 24
-        moving_avg = 3
-        enc_in = 7  # Number of variates/channels
-        num_class = 10  # For classification task
-
-    configs = Configs()
-    model = Model(configs)
-    
-    # Generate some example data
-    batch_size = 16
-    x_enc = torch.randn(batch_size, configs.seq_len, configs.enc_in)
-    
-    # Perform forecasting
-    forecast_output = model.forecast(x_enc)
-    
-    # Print the shape of the output to verify
-    print("Forecast output shape:", forecast_output.shape)

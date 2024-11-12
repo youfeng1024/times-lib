@@ -179,7 +179,7 @@ class PatchEmbedding(nn.Module):
         # Residual dropout
         self.dropout = nn.Dropout(dropout)
 
-    def forward(self, x:torch.Tensor):
+    def forward(self, x):
         # do patching
         n_vars = x.shape[1]
         x = self.padding_patch_layer(x)

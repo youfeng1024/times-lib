@@ -132,4 +132,4 @@ python -u run.py \
   --des 'Exp' \
   --itr 1 \
   --learning_rate 0.001 \
-  --loss ''
+  --loss 'SMAPE'

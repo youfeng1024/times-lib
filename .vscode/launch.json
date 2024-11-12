@@ -1,0 +1,38 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "PatchTST",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "--task_name", "long_term_forecast",
+                "--is_training", "1",
+                "--root_path", "./dataset/Iron/",
+                "--data_path", "Iron.csv",
+                "--model_id", "Iron_96_192",
+                "--model", "PatchTST",
+                "--data", "custom",
+                "--target", "close",
+                "--features", "MS",
+                "--seq_len", "12",
+                "--label_len", "6",
+                "--pred_len", "6",
+                "--e_layers", "2",
+                "--d_layers", "1",
+                "--factor", "3",
+                "--enc_in", "7",
+                "--dec_in", "7",
+                "--c_out", "7",
+                "--des", "Exp",
+                "--batch_size", "16",
+                "--itr", "1"
+            ]
+        }
+    ]
+}

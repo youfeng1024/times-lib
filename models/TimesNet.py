@@ -5,18 +5,23 @@ import torch.fft
 from layers.Embed import DataEmbedding
 from layers.Conv_Blocks import Inception_Block_V1
 
-
 def FFT_for_Period(x, k=2):
     # [B, T, C]
+    # 一维离散傅里叶变换，沿T维度[B, T, C] --> [B, T//2+1, C]
     xf = torch.fft.rfft(x, dim=1)
-    # find period by amplitudes
-    frequency_list = abs(xf).mean(0).mean(-1)
+    # 通过振幅寻找周期
+    # 在每个频率上的平均值,然后对所有频率取平均[B, T//2+1, C] --> [T//2+1]
+    frequency_list = torch.abs(xf).mean(0).mean(-1)
+    # 将第一个频率值设置为0(直流分量)
     frequency_list[0] = 0
+    # 在频率列表中找到前K个最大值的索引
     _, top_list = torch.topk(frequency_list, k)
+    # 将top_list张量转换为numpy数组
     top_list = top_list.detach().cpu().numpy()
-    period = x.shape[1] // top_list
+    # 通过将序列的总长度除以每个顶部频率,计算周期
+    period = x.shape[1] // top_list #period [B, topk]
+    # 返回period,计算选定的顶部频率在最后一个维度C上的平均幅度[B, T//2+1, C] --> [B, k]
     return period, abs(xf).mean(-1)[:, top_list]
-
 
 class TimesBlock(nn.Module):
     def __init__(self, configs):
@@ -100,7 +105,7 @@ class Model(nn.Module):
             self.projection = nn.Linear(
                 configs.d_model * configs.seq_len, configs.num_class)
 
-    def forecast(self, x_enc, x_mark_enc, x_dec, x_mark_dec):
+    def forecast(self, x_enc, x_mark_enc, x_dec = None, x_mark_dec = None):
         # Normalization from Non-stationary Transformer
         means = x_enc.mean(1, keepdim=True).detach()
         x_enc = x_enc - means

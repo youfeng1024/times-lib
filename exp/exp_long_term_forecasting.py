@@ -107,6 +107,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                 batch_y_mark = batch_y_mark.float().to(self.device)
 
                 # decoder input
+                # 生成decoder输入：[label_len, pred_len]，后pred_len全0
                 dec_inp = torch.zeros_like(batch_y[:, -self.args.pred_len:, :]).float()
                 dec_inp = torch.cat([batch_y[:, :self.args.label_len, :], dec_inp], dim=1).float().to(self.device)
 

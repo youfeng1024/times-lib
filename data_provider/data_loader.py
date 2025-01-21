@@ -9,7 +9,7 @@ from sklearn.preprocessing import StandardScaler
 from utils.timefeatures import time_features
 from data_provider.m4 import M4Dataset, M4Meta
 from data_provider.uea import subsample, interpolate_missing, Normalizer
-# from sktime.datasets import load_from_tsfile_to_dataframe
+from sktime.datasets import load_from_tsfile_to_dataframe
 import warnings
 from utils.augmentation import run_augmentation_single
 
@@ -656,9 +656,9 @@ class UEAloader(Dataset):
 
     def load_all(self, root_path, file_list=None, flag=None):
         """
-        Loads datasets from csv files contained in `root_path` into a dataframe, optionally choosing from `pattern`
+        Loads datasets from ts files contained in `root_path` into a dataframe, optionally choosing from `pattern`
         Args:
-            root_path: directory containing all individual .csv files
+            root_path: directory containing all individual .ts files
             file_list: optionally, provide a list of file paths within `root_path` to consider.
                 Otherwise, entire `root_path` contents will be used.
         Returns:

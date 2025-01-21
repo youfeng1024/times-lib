@@ -29,8 +29,6 @@ class EncoderLayer(nn.Module):
         super(EncoderLayer, self).__init__()
         d_ff = d_ff or 4 * d_model
         self.attention = attention
-        # 这里的1D 卷积 和 MLP 的参数量完全相同，因为它们的操作本质上都是对输入特征进行线性变换
-        # 这里的卷积核和fft某种意义上是等价的，只不过线性层变换-1维度，1d卷积变换-2维度
         self.conv1 = nn.Conv1d(in_channels=d_model, out_channels=d_ff, kernel_size=1)
         self.conv2 = nn.Conv1d(in_channels=d_ff, out_channels=d_model, kernel_size=1)
         self.norm1 = nn.LayerNorm(d_model)

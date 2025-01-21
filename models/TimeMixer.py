@@ -175,7 +175,8 @@ class PastDecomposableMixing(nn.Module):
         out_trend_list = self.mixing_multi_scale_trend(trend_list)
 
         out_list = []
-        for ori, out_season, out_trend, length in zip(x_list, out_season_list, out_trend_list,length_list):
+        for ori, out_season, out_trend, length in zip(x_list, out_season_list, out_trend_list,
+                                                      length_list):
             out = out_season + out_trend
             if self.channel_independence:
                 out = ori + self.out_cross_layer(out)
@@ -286,41 +287,11 @@ class Model(nn.Module):
             return (out1_list, out2_list)
 
     def __multi_scale_process_inputs(self, x_enc, x_mark_enc):
-        """
-        使用多尺度下采样方法处理输入序列。
-
-        该函数在多个层级上应用指定的下采样方法（'max'、'avg' 或 'conv'）对输入序列进行处理，以生成输入数据的多尺度表示。它返回包含原始输入和不同尺度下采样版本的张量列表。
-
-        args:
-            x_enc (torch.Tensor): 输入编码张量，形状为 (batch_size, seq_len, channels)。
-            x_mark_enc (torch.Tensor 或 None): 对应的输入时间特征张量，形状为
-                                               (batch_size, seq_len, time_feature_channels)。可以为 None。
-
-        return:
-            Tuple[List[torch.Tensor], Optional[List[torch.Tensor]]]:
-                - x_enc: 一个列表，包含 `x_enc` 在不同尺度下的原始和下采样版本。
-                         列表中的每个张量形状为 (batch_size, seq_len_downsampled, channels)。
-                - x_mark_enc: 一个列表，包含 `x_mark_enc` 在不同尺度下的原始和下采样版本。
-                              列表中的每个张量形状为 (batch_size, seq_len_downsampled, time_feature_channels)。
-                              如果 `x_mark_enc` 为 None，则为 None。
-
-        note:
-            - 下采样方法和参数在 `self.configs` 中指定，应包括：
-                - `down_sampling_method` (str): 用于下采样的方法（'max'、'avg' 或 'conv'）。
-                - `down_sampling_window` (int): 下采样的窗口大小或步幅。
-                - `down_sampling_layers` (int): 要应用的下采样层数。
-                - `enc_in` (int): 输入通道数（如果 `down_sampling_method` 为 'conv' 时使用）。
-            - 如果指定了无效的 `down_sampling_method`，函数将返回未经处理的原始输入。
-            - 下采样在时间维度（序列长度）上进行。
-        """
         if self.configs.down_sampling_method == 'max':
-            # 如果下采样方法是最大池化，定义MaxPool1d层
             down_pool = torch.nn.MaxPool1d(self.configs.down_sampling_window, return_indices=False)
         elif self.configs.down_sampling_method == 'avg':
-            # 如果下采样方法是平均池化，定义AvgPool1d层
             down_pool = torch.nn.AvgPool1d(self.configs.down_sampling_window)
         elif self.configs.down_sampling_method == 'conv':
-            # 如果下采样方法是卷积，定义Conv1d层
             padding = 1 if torch.__version__ >= '1.5.0' else 2
             down_pool = nn.Conv1d(in_channels=self.configs.enc_in, out_channels=self.configs.enc_in,
                                   kernel_size=3, padding=padding,
@@ -328,98 +299,79 @@ class Model(nn.Module):
                                   padding_mode='circular',
                                   bias=False)
         else:
-            # 如果没有匹配的下采样方法，返回原始输入
             return x_enc, x_mark_enc
-        
         # B,T,C -> B,C,T
-        # 将输入张量x_enc的维度从 (Batch, Time, Channel) 转换为 (Batch, Channel, Time)
         x_enc = x_enc.permute(0, 2, 1)
-        
-        # 保存原始输入张量
+
         x_enc_ori = x_enc
         x_mark_enc_mark_ori = x_mark_enc
-        
-        # 初始化采样列表
+
         x_enc_sampling_list = []
         x_mark_sampling_list = []
-        # 将原始输入张量添加到采样列表中
         x_enc_sampling_list.append(x_enc.permute(0, 2, 1))
         x_mark_sampling_list.append(x_mark_enc)
-        
-        # 进行多层下采样
+
         for i in range(self.configs.down_sampling_layers):
-            # 对x_enc_ori进行下采样
             x_enc_sampling = down_pool(x_enc_ori)
-        
-            # 将下采样后的张量添加到采样列表中，并转换维度为 (Batch, Time, Channel)
+
             x_enc_sampling_list.append(x_enc_sampling.permute(0, 2, 1))
-            # 更新x_enc_ori为下采样后的张量
             x_enc_ori = x_enc_sampling
-        
+
             if x_mark_enc is not None:
-                # 对x_mark_enc进行下采样，并添加到采样列表中
                 x_mark_sampling_list.append(x_mark_enc_mark_ori[:, ::self.configs.down_sampling_window, :])
                 x_mark_enc_mark_ori = x_mark_enc_mark_ori[:, ::self.configs.down_sampling_window, :]
-        
-        # 将采样列表赋值给x_enc和x_mark_enc
+
         x_enc = x_enc_sampling_list
         x_mark_enc = x_mark_sampling_list if x_mark_enc is not None else None
-        
-        # 返回下采样后的张量列表
+
         return x_enc, x_mark_enc
 
-    def forecast(self, x_enc, x_mark_enc):
-        # 使用多尺度下采样方法处理输入序列
+    def forecast(self, x_enc, x_mark_enc, x_dec, x_mark_dec):
+
         x_enc, x_mark_enc = self.__multi_scale_process_inputs(x_enc, x_mark_enc)
 
-        # 通道混合or通道独立归一化
         x_list = []
         x_mark_list = []
         if x_mark_enc is not None:
             for i, x, x_mark in zip(range(len(x_enc)), x_enc, x_mark_enc):
                 B, T, N = x.size()
-                # 归一化输入数据
                 x = self.normalize_layers[i](x, 'norm')
                 if self.channel_independence:
-                    # 如果通道独立，将输入数据转换为 (Batch * Channels, Time, 1)
                     x = x.permute(0, 2, 1).contiguous().reshape(B * N, T, 1)
+                    x_list.append(x)
                     x_mark = x_mark.repeat(N, 1, 1)
-                x_list.append(x)
-                x_mark_list.append(x_mark)
+                    x_mark_list.append(x_mark)
+                else:
+                    x_list.append(x)
+                    x_mark_list.append(x_mark)
         else:
-            for i, x in zip(range(len(x_enc)), x_enc):
+            for i, x in zip(range(len(x_enc)), x_enc, ):
                 B, T, N = x.size()
-                # 归一化输入数据
                 x = self.normalize_layers[i](x, 'norm')
                 if self.channel_independence:
-                    # 如果通道独立，将输入数据转换为 (Batch * Channels, Time, 1)
                     x = x.permute(0, 2, 1).contiguous().reshape(B * N, T, 1)
                 x_list.append(x)
 
-        # 预处理输入数据
+        # embedding
         enc_out_list = []
-        x_list = self.pre_enc(x_list) #分解
+        x_list = self.pre_enc(x_list)
         if x_mark_enc is not None:
             for i, x, x_mark in zip(range(len(x_list[0])), x_list[0], x_mark_list):
-                # 嵌入输入数据
-                enc_out = self.enc_embedding(x, x_mark)  # [B, T, C]
+                enc_out = self.enc_embedding(x, x_mark)  # [B,T,C]
                 enc_out_list.append(enc_out)
         else:
             for i, x in zip(range(len(x_list[0])), x_list[0]):
-                # 嵌入输入数据
-                enc_out = self.enc_embedding(x, None)  # [B, T, C]
+                enc_out = self.enc_embedding(x, None)  # [B,T,C]
                 enc_out_list.append(enc_out)
 
-        # 使用PDM作为过去的编码器
+        # Past Decomposable Mixing as encoder for past
         for i in range(self.layer):
             enc_out_list = self.pdm_blocks[i](enc_out_list)
 
-        # 使用FMM作为未来的解码器
+        # Future Multipredictor Mixing as decoder for future
         dec_out_list = self.future_multi_mixing(B, enc_out_list, x_list)
 
-        # 将解码器输出堆叠并求和
         dec_out = torch.stack(dec_out_list, dim=-1).sum(-1)
-        # 对解码器输出进行反归一化
         dec_out = self.normalize_layers[0](dec_out, 'denorm')
         return dec_out
 
@@ -549,7 +501,7 @@ class Model(nn.Module):
 
     def forward(self, x_enc, x_mark_enc, x_dec, x_mark_dec, mask=None):
         if self.task_name == 'long_term_forecast' or self.task_name == 'short_term_forecast':
-            dec_out = self.forecast(x_enc, x_mark_enc)
+            dec_out = self.forecast(x_enc, x_mark_enc, x_dec, x_mark_dec)
             return dec_out
         if self.task_name == 'imputation':
             dec_out = self.imputation(x_enc, x_mark_enc, mask)

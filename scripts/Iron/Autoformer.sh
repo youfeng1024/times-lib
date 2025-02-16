@@ -2,16 +2,16 @@
 
 model_name=Autoformer
 
-for pred_len in 1 2 6 10
+for pred_len in 7 24
 # for pred_len in 336 48
 do
 
 python -u run.py \
   --task_name short_term_forecast \
   --is_training 1 \
-  --root_path ./dataset/Iron/ \
-  --data_path Iron.csv \
-  --model_id Iron_$pred_len \
+  --root_path ./dataset/stock/ \
+  --data_path stock.csv \
+  --model_id stock_$pred_len \
   --model $model_name \
   --data custom \
   --target close \

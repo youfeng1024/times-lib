@@ -5,9 +5,9 @@ model_name=DLinear
 python -u run.py \
   --task_name long_term_forecast \
   --is_training 1 \
-  --root_path ./dataset/Iron/ \
-  --data_path Iron.csv \
-  --model_id Iron_96_96 \
+  --root_path ./dataset/stock/ \
+  --data_path stock.csv \
+  --model_id stock_96_96 \
   --model $model_name \
   --data custom \
   --target close \

@@ -1,0 +1,1765 @@
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_1         Model:              Nonstationary_Transformer
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           1                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.0001              
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_1_Nonstationary_Transformer_custom_ftM_sl80_ll40_pl1_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3338
+val 490
+test 976
+Epoch: 1 cost time: 7.322685956954956
+Epoch: 1, Steps: 14 | Train Loss: 0.0840967 Vali Loss: 0.0843157 Test Loss: 0.1134797
+Validation loss decreased (inf --> 0.084316).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2 cost time: 4.209197521209717
+Epoch: 2, Steps: 14 | Train Loss: 0.0411383 Vali Loss: 0.0772934 Test Loss: 0.0856200
+Validation loss decreased (0.084316 --> 0.077293).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3 cost time: 4.068977117538452
+Epoch: 3, Steps: 14 | Train Loss: 0.0401112 Vali Loss: 0.0590728 Test Loss: 0.0848500
+Validation loss decreased (0.077293 --> 0.059073).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4 cost time: 4.5519866943359375
+Epoch: 4, Steps: 14 | Train Loss: 0.0361649 Vali Loss: 0.0551117 Test Loss: 0.0701576
+Validation loss decreased (0.059073 --> 0.055112).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5 cost time: 4.604929685592651
+Epoch: 5, Steps: 14 | Train Loss: 0.0337377 Vali Loss: 0.0530680 Test Loss: 0.0735327
+Validation loss decreased (0.055112 --> 0.053068).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6 cost time: 4.28235387802124
+Epoch: 6, Steps: 14 | Train Loss: 0.0436389 Vali Loss: 0.0524327 Test Loss: 0.0725902
+Validation loss decreased (0.053068 --> 0.052433).  Saving model ...
+Updating learning rate to 3.125e-06
+Epoch: 7 cost time: 5.054915189743042
+Epoch: 7, Steps: 14 | Train Loss: 0.0295445 Vali Loss: 0.0541650 Test Loss: 0.0732675
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 1.5625e-06
+Epoch: 8 cost time: 4.7032177448272705
+Epoch: 8, Steps: 14 | Train Loss: 0.0309065 Vali Loss: 0.0535768 Test Loss: 0.0725180
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 7.8125e-07
+Epoch: 9 cost time: 3.7596242427825928
+Epoch: 9, Steps: 14 | Train Loss: 0.0287197 Vali Loss: 0.0527511 Test Loss: 0.0720850
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_1_Nonstationary_Transformer_custom_ftM_sl80_ll40_pl1_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 976
+test shape: (976, 1, 6) (976, 1, 6)
+test shape: (976, 1, 6) (976, 1, 6)
+mse:0.06871668249368668, mae:0.12644384801387787, dtw:Not calculated
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_7         Model:              Nonstationary_Transformer
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           7                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.0001              
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_7_Nonstationary_Transformer_custom_ftM_sl80_ll40_pl7_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3332
+val 484
+test 970
+Epoch: 1 cost time: 6.85879111289978
+Epoch: 1, Steps: 14 | Train Loss: 0.1473772 Vali Loss: 0.1730182 Test Loss: 0.1868860
+Validation loss decreased (inf --> 0.173018).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2 cost time: 3.991931438446045
+Epoch: 2, Steps: 14 | Train Loss: 0.0871411 Vali Loss: 0.1584544 Test Loss: 0.1865208
+Validation loss decreased (0.173018 --> 0.158454).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3 cost time: 3.892655611038208
+Epoch: 3, Steps: 14 | Train Loss: 0.0698202 Vali Loss: 0.1461669 Test Loss: 0.1831965
+Validation loss decreased (0.158454 --> 0.146167).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4 cost time: 3.6813743114471436
+Epoch: 4, Steps: 14 | Train Loss: 0.0672646 Vali Loss: 0.1354090 Test Loss: 0.1769597
+Validation loss decreased (0.146167 --> 0.135409).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5 cost time: 3.7416152954101562
+Epoch: 5, Steps: 14 | Train Loss: 0.0771833 Vali Loss: 0.1315814 Test Loss: 0.1758577
+Validation loss decreased (0.135409 --> 0.131581).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6 cost time: 3.896603584289551
+Epoch: 6, Steps: 14 | Train Loss: 0.0703904 Vali Loss: 0.1365348 Test Loss: 0.1778800
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 3.125e-06
+Epoch: 7 cost time: 3.467372417449951
+Epoch: 7, Steps: 14 | Train Loss: 0.0603285 Vali Loss: 0.1338665 Test Loss: 0.1721103
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 1.5625e-06
+Epoch: 8 cost time: 4.248559951782227
+Epoch: 8, Steps: 14 | Train Loss: 0.0595426 Vali Loss: 0.1336343 Test Loss: 0.1715589
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_7_Nonstationary_Transformer_custom_ftM_sl80_ll40_pl7_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 970
+test shape: (970, 7, 6) (970, 7, 6)
+test shape: (970, 7, 6) (970, 7, 6)
+mse:0.16348575055599213, mae:0.20757077634334564, dtw:Not calculated
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_80        Model:              Nonstationary_Transformer
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           20                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.0001              
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_80_Nonstationary_Transformer_custom_ftM_sl80_ll40_pl20_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3319
+val 471
+test 957
+Epoch: 1 cost time: 6.4943883419036865
+Epoch: 1, Steps: 13 | Train Loss: 0.1903661 Vali Loss: 0.2564370 Test Loss: 0.2502704
+Validation loss decreased (inf --> 0.256437).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2 cost time: 4.083690881729126
+Epoch: 2, Steps: 13 | Train Loss: 0.1239590 Vali Loss: 0.2408795 Test Loss: 0.2669947
+Validation loss decreased (0.256437 --> 0.240879).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3 cost time: 4.060902118682861
+Epoch: 3, Steps: 13 | Train Loss: 0.1027907 Vali Loss: 0.2254498 Test Loss: 0.2534282
+Validation loss decreased (0.240879 --> 0.225450).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4 cost time: 3.9997036457061768
+Epoch: 4, Steps: 13 | Train Loss: 0.0944148 Vali Loss: 0.2221339 Test Loss: 0.2350442
+Validation loss decreased (0.225450 --> 0.222134).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5 cost time: 3.8675930500030518
+Epoch: 5, Steps: 13 | Train Loss: 0.0912268 Vali Loss: 0.2094856 Test Loss: 0.2411091
+Validation loss decreased (0.222134 --> 0.209486).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6 cost time: 4.1085731983184814
+Epoch: 6, Steps: 13 | Train Loss: 0.0896286 Vali Loss: 0.2138376 Test Loss: 0.2357105
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 3.125e-06
+Epoch: 7 cost time: 3.6085312366485596
+Epoch: 7, Steps: 13 | Train Loss: 0.0888017 Vali Loss: 0.2091569 Test Loss: 0.2344318
+Validation loss decreased (0.209486 --> 0.209157).  Saving model ...
+Updating learning rate to 1.5625e-06
+Epoch: 8 cost time: 4.004342794418335
+Epoch: 8, Steps: 13 | Train Loss: 0.0881278 Vali Loss: 0.2127129 Test Loss: 0.2340342
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 7.8125e-07
+Epoch: 9 cost time: 4.141232490539551
+Epoch: 9, Steps: 13 | Train Loss: 0.0879285 Vali Loss: 0.2132775 Test Loss: 0.2339938
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 3.90625e-07
+Epoch: 10 cost time: 3.851158857345581
+Epoch: 10, Steps: 13 | Train Loss: 0.0874551 Vali Loss: 0.2152344 Test Loss: 0.2340015
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_80_Nonstationary_Transformer_custom_ftM_sl80_ll40_pl20_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 957
+test shape: (957, 20, 6) (957, 20, 6)
+test shape: (957, 20, 6) (957, 20, 6)
+mse:0.21370626986026764, mae:0.25595995783805847, dtw:Not calculated
+
+usage: run.py [-h] --task_name TASK_NAME --is_training IS_TRAINING --model_id
+              MODEL_ID --model MODEL --data DATA [--root_path ROOT_PATH]
+              [--data_path DATA_PATH] [--features FEATURES] [--target TARGET]
+              [--freq FREQ] [--checkpoints CHECKPOINTS] [--seq_len SEQ_LEN]
+              [--label_len LABEL_LEN] [--pred_len PRED_LEN]
+              [--seasonal_patterns SEASONAL_PATTERNS] [--inverse]
+              [--mask_rate MASK_RATE] [--anomaly_ratio ANOMALY_RATIO]
+              [--expand EXPAND] [--d_conv D_CONV] [--top_k TOP_K]
+              [--num_kernels NUM_KERNELS] [--enc_in ENC_IN] [--dec_in DEC_IN]
+              [--c_out C_OUT] [--d_model D_MODEL] [--n_heads N_HEADS]
+              [--e_layers E_LAYERS] [--d_layers D_LAYERS] [--d_ff D_FF]
+              [--moving_avg MOVING_AVG] [--factor FACTOR] [--distil]
+              [--dropout DROPOUT] [--embed EMBED] [--activation ACTIVATION]
+              [--channel_independence CHANNEL_INDEPENDENCE]
+              [--decomp_method DECOMP_METHOD] [--use_norm USE_NORM]
+              [--down_sampling_layers DOWN_SAMPLING_LAYERS]
+              [--down_sampling_window DOWN_SAMPLING_WINDOW]
+              [--down_sampling_method DOWN_SAMPLING_METHOD]
+              [--seg_len SEG_LEN] [--num_workers NUM_WORKERS] [--itr ITR]
+              [--train_epochs TRAIN_EPOCHS] [--batch_size BATCH_SIZE]
+              [--patience PATIENCE] [--learning_rate LEARNING_RATE]
+              [--des DES] [--loss LOSS] [--lradj LRADJ] [--use_amp]
+              [--use_gpu USE_GPU] [--gpu GPU] [--gpu_type GPU_TYPE]
+              [--use_multi_gpu] [--devices DEVICES]
+              [--p_hidden_dims P_HIDDEN_DIMS [P_HIDDEN_DIMS ...]]
+              [--p_hidden_layers P_HIDDEN_LAYERS] [--use_dtw USE_DTW]
+              [--augmentation_ratio AUGMENTATION_RATIO] [--seed SEED]
+              [--jitter] [--scaling] [--permutation] [--randompermutation]
+              [--magwarp] [--timewarp] [--windowslice] [--windowwarp]
+              [--rotation] [--spawner] [--dtwwarp] [--shapedtwwarp] [--wdba]
+              [--discdtw] [--discsdtw] [--extra_tag EXTRA_TAG]
+              [--patch_len PATCH_LEN]
+run.py: error: argument --embed: expected one argument
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_7         Model:              PatchTST            
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           7                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               512                 
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.0001              
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_7_PatchTST_custom_ftM_sl80_ll40_pl7_dm512_nh8_el2_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3332
+val 484
+test 970
+Epoch: 1 cost time: 5.743870258331299
+Epoch: 1, Steps: 14 | Train Loss: 0.1418094 Vali Loss: 0.1390715 Test Loss: 0.1521148
+Validation loss decreased (inf --> 0.139072).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2 cost time: 2.355039596557617
+Epoch: 2, Steps: 14 | Train Loss: 0.0953301 Vali Loss: 0.1299320 Test Loss: 0.1375880
+Validation loss decreased (0.139072 --> 0.129932).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3 cost time: 2.6670286655426025
+Epoch: 3, Steps: 14 | Train Loss: 0.0844819 Vali Loss: 0.1167387 Test Loss: 0.1278430
+Validation loss decreased (0.129932 --> 0.116739).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4 cost time: 2.732001781463623
+Epoch: 4, Steps: 14 | Train Loss: 0.0806363 Vali Loss: 0.1125398 Test Loss: 0.1274070
+Validation loss decreased (0.116739 --> 0.112540).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5 cost time: 2.429955244064331
+Epoch: 5, Steps: 14 | Train Loss: 0.0906992 Vali Loss: 0.1127364 Test Loss: 0.1275248
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 6.25e-06
+Epoch: 6 cost time: 2.5134432315826416
+Epoch: 6, Steps: 14 | Train Loss: 0.0928846 Vali Loss: 0.1135824 Test Loss: 0.1276650
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 3.125e-06
+Epoch: 7 cost time: 2.5984463691711426
+Epoch: 7, Steps: 14 | Train Loss: 0.0823022 Vali Loss: 0.1150193 Test Loss: 0.1284345
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_7_PatchTST_custom_ftM_sl80_ll40_pl7_dm512_nh8_el2_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 970
+test shape: (970, 7, 6) (970, 7, 6)
+test shape: (970, 7, 6) (970, 7, 6)
+mse:0.11651702970266342, mae:0.17037853598594666, dtw:Not calculated
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_80        Model:              PatchTST            
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           20                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               512                 
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.0001              
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_80_PatchTST_custom_ftM_sl80_ll40_pl20_dm512_nh8_el2_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3319
+val 471
+test 957
+Epoch: 1 cost time: 6.846246957778931
+Epoch: 1, Steps: 13 | Train Loss: 0.1832896 Vali Loss: 0.2099119 Test Loss: 0.1990630
+Validation loss decreased (inf --> 0.209912).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2 cost time: 3.3917014598846436
+Epoch: 2, Steps: 13 | Train Loss: 0.1375445 Vali Loss: 0.2197655 Test Loss: 0.1989085
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 5e-05
+Epoch: 3 cost time: 3.1718075275421143
+Epoch: 3, Steps: 13 | Train Loss: 0.1317095 Vali Loss: 0.1973006 Test Loss: 0.1874829
+Validation loss decreased (0.209912 --> 0.197301).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4 cost time: 3.0176992416381836
+Epoch: 4, Steps: 13 | Train Loss: 0.1282316 Vali Loss: 0.1988292 Test Loss: 0.1888564
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 1.25e-05
+Epoch: 5 cost time: 2.8466174602508545
+Epoch: 5, Steps: 13 | Train Loss: 0.1258654 Vali Loss: 0.2010139 Test Loss: 0.1880039
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 6.25e-06
+Epoch: 6 cost time: 2.9840219020843506
+Epoch: 6, Steps: 13 | Train Loss: 0.1251707 Vali Loss: 0.2016377 Test Loss: 0.1893760
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_80_PatchTST_custom_ftM_sl80_ll40_pl20_dm512_nh8_el2_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 957
+test shape: (957, 20, 6) (957, 20, 6)
+test shape: (957, 20, 6) (957, 20, 6)
+mse:0.1678033471107483, mae:0.21672886610031128, dtw:Not calculated
+
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_1         Model:              TimeMixer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          0                   
+  Pred Len:           1                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            32                  
+  n heads:            8                   e layers:           3                   
+  d layers:           1                   d FF:               64                  
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         128                 
+  Patience:           3                   Learning Rate:      0.01                
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_1_TimeMixer_custom_ftM_sl80_ll0_pl1_dm32_nh8_el3_dl1_df64_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3338
+val 490
+test 976
+Epoch: 1 cost time: 6.469711065292358
+Epoch: 1, Steps: 27 | Train Loss: 0.1030482 Vali Loss: 0.0585703 Test Loss: 0.0677182
+Validation loss decreased (inf --> 0.058570).  Saving model ...
+Updating learning rate to 0.01
+Epoch: 2 cost time: 3.1299939155578613
+Epoch: 2, Steps: 27 | Train Loss: 0.0337951 Vali Loss: 0.0496497 Test Loss: 0.0608018
+Validation loss decreased (0.058570 --> 0.049650).  Saving model ...
+Updating learning rate to 0.005
+Epoch: 3 cost time: 3.0858263969421387
+Epoch: 3, Steps: 27 | Train Loss: 0.0294407 Vali Loss: 0.0464910 Test Loss: 0.0542819
+Validation loss decreased (0.049650 --> 0.046491).  Saving model ...
+Updating learning rate to 0.0025
+Epoch: 4 cost time: 3.078770875930786
+Epoch: 4, Steps: 27 | Train Loss: 0.0290593 Vali Loss: 0.0509852 Test Loss: 0.0575561
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00125
+Epoch: 5 cost time: 3.0009915828704834
+Epoch: 5, Steps: 27 | Train Loss: 0.0270715 Vali Loss: 0.0495151 Test Loss: 0.0547047
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.000625
+Epoch: 6 cost time: 3.4149513244628906
+Epoch: 6, Steps: 27 | Train Loss: 0.0262690 Vali Loss: 0.0463972 Test Loss: 0.0525951
+Validation loss decreased (0.046491 --> 0.046397).  Saving model ...
+Updating learning rate to 0.0003125
+Epoch: 7 cost time: 3.035215377807617
+Epoch: 7, Steps: 27 | Train Loss: 0.0251717 Vali Loss: 0.0465664 Test Loss: 0.0529688
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00015625
+Epoch: 8 cost time: 3.160493850708008
+Epoch: 8, Steps: 27 | Train Loss: 0.0251943 Vali Loss: 0.0469127 Test Loss: 0.0529252
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 7.8125e-05
+Epoch: 9 cost time: 3.2852184772491455
+Epoch: 9, Steps: 27 | Train Loss: 0.0246362 Vali Loss: 0.0467874 Test Loss: 0.0528514
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_1_TimeMixer_custom_ftM_sl80_ll0_pl1_dm32_nh8_el3_dl1_df64_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 976
+test shape: (976, 1, 6) (976, 1, 6)
+test shape: (976, 1, 6) (976, 1, 6)
+mse:0.05022171512246132, mae:0.11060529202222824, dtw:Not calculated
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_7         Model:              TimeMixer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          0                   
+  Pred Len:           7                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            32                  
+  n heads:            8                   e layers:           3                   
+  d layers:           1                   d FF:               64                  
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         128                 
+  Patience:           3                   Learning Rate:      0.01                
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_7_TimeMixer_custom_ftM_sl80_ll0_pl7_dm32_nh8_el3_dl1_df64_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3332
+val 484
+test 970
+Epoch: 1 cost time: 6.945656776428223
+Epoch: 1, Steps: 27 | Train Loss: 0.1486878 Vali Loss: 0.1359517 Test Loss: 0.1293574
+Validation loss decreased (inf --> 0.135952).  Saving model ...
+Updating learning rate to 0.01
+Epoch: 2 cost time: 3.2548491954803467
+Epoch: 2, Steps: 27 | Train Loss: 0.0644768 Vali Loss: 0.1094369 Test Loss: 0.1217446
+Validation loss decreased (0.135952 --> 0.109437).  Saving model ...
+Updating learning rate to 0.005
+Epoch: 3 cost time: 3.479518175125122
+Epoch: 3, Steps: 27 | Train Loss: 0.0564693 Vali Loss: 0.1043081 Test Loss: 0.1114726
+Validation loss decreased (0.109437 --> 0.104308).  Saving model ...
+Updating learning rate to 0.0025
+Epoch: 4 cost time: 3.227297067642212
+Epoch: 4, Steps: 27 | Train Loss: 0.0544435 Vali Loss: 0.1133159 Test Loss: 0.1174243
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00125
+Epoch: 5 cost time: 3.0238037109375
+Epoch: 5, Steps: 27 | Train Loss: 0.0599292 Vali Loss: 0.1062549 Test Loss: 0.1218608
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.000625
+Epoch: 6 cost time: 3.1581265926361084
+Epoch: 6, Steps: 27 | Train Loss: 0.0534870 Vali Loss: 0.1088445 Test Loss: 0.1198341
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_7_TimeMixer_custom_ftM_sl80_ll0_pl7_dm32_nh8_el3_dl1_df64_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 970
+test shape: (970, 7, 6) (970, 7, 6)
+test shape: (970, 7, 6) (970, 7, 6)
+mse:0.10823548585176468, mae:0.16065704822540283, dtw:Not calculated
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_80        Model:              TimeMixer           
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          0                   
+  Pred Len:           20                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            32                  
+  n heads:            8                   e layers:           3                   
+  d layers:           1                   d FF:               64                  
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         128                 
+  Patience:           3                   Learning Rate:      0.01                
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_80_TimeMixer_custom_ftM_sl80_ll0_pl20_dm32_nh8_el3_dl1_df64_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3319
+val 471
+test 957
+Epoch: 1 cost time: 6.477097511291504
+Epoch: 1, Steps: 26 | Train Loss: 0.2170044 Vali Loss: 0.1923494 Test Loss: 0.1701890
+Validation loss decreased (inf --> 0.192349).  Saving model ...
+Updating learning rate to 0.01
+Epoch: 2 cost time: 3.2762486934661865
+Epoch: 2, Steps: 26 | Train Loss: 0.1099938 Vali Loss: 0.1815959 Test Loss: 0.1756437
+Validation loss decreased (0.192349 --> 0.181596).  Saving model ...
+Updating learning rate to 0.005
+Epoch: 3 cost time: 3.0763871669769287
+Epoch: 3, Steps: 26 | Train Loss: 0.0941983 Vali Loss: 0.1922508 Test Loss: 0.1797284
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0025
+Epoch: 4 cost time: 3.0453884601593018
+Epoch: 4, Steps: 26 | Train Loss: 0.0868931 Vali Loss: 0.2038369 Test Loss: 0.1935011
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00125
+Epoch: 5 cost time: 3.0268876552581787
+Epoch: 5, Steps: 26 | Train Loss: 0.0806446 Vali Loss: 0.1976293 Test Loss: 0.1867928
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_80_TimeMixer_custom_ftM_sl80_ll0_pl20_dm32_nh8_el3_dl1_df64_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 957
+test shape: (957, 20, 6) (957, 20, 6)
+test shape: (957, 20, 6) (957, 20, 6)
+mse:0.16884295642375946, mae:0.21570223569869995, dtw:Not calculated
+
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_1         Model:              TimeXer             
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           1                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           3                   
+  d layers:           1                   d FF:               512                 
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.001               
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_1_TimeXer_custom_ftM_sl80_ll40_pl1_dm512_nh8_el3_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3338
+val 490
+test 976
+Epoch: 1 cost time: 5.805113315582275
+Epoch: 1, Steps: 14 | Train Loss: 0.6322237 Vali Loss: 0.2268751 Test Loss: 0.1810534
+Validation loss decreased (inf --> 0.226875).  Saving model ...
+Updating learning rate to 0.001
+Epoch: 2 cost time: 2.759744644165039
+Epoch: 2, Steps: 14 | Train Loss: 0.1416526 Vali Loss: 0.2159777 Test Loss: 0.2181746
+Validation loss decreased (0.226875 --> 0.215978).  Saving model ...
+Updating learning rate to 0.0005
+Epoch: 3 cost time: 2.301532745361328
+Epoch: 3, Steps: 14 | Train Loss: 0.1017664 Vali Loss: 0.1910641 Test Loss: 0.1789093
+Validation loss decreased (0.215978 --> 0.191064).  Saving model ...
+Updating learning rate to 0.00025
+Epoch: 4 cost time: 2.847555637359619
+Epoch: 4, Steps: 14 | Train Loss: 0.0928996 Vali Loss: 0.1655963 Test Loss: 0.1580960
+Validation loss decreased (0.191064 --> 0.165596).  Saving model ...
+Updating learning rate to 0.000125
+Epoch: 5 cost time: 2.699723482131958
+Epoch: 5, Steps: 14 | Train Loss: 0.0843279 Vali Loss: 0.1595163 Test Loss: 0.1561575
+Validation loss decreased (0.165596 --> 0.159516).  Saving model ...
+Updating learning rate to 6.25e-05
+Epoch: 6 cost time: 2.943505048751831
+Epoch: 6, Steps: 14 | Train Loss: 0.0817501 Vali Loss: 0.1559393 Test Loss: 0.1533983
+Validation loss decreased (0.159516 --> 0.155939).  Saving model ...
+Updating learning rate to 3.125e-05
+Epoch: 7 cost time: 2.8601250648498535
+Epoch: 7, Steps: 14 | Train Loss: 0.0811126 Vali Loss: 0.1540483 Test Loss: 0.1523950
+Validation loss decreased (0.155939 --> 0.154048).  Saving model ...
+Updating learning rate to 1.5625e-05
+Epoch: 8 cost time: 3.3740994930267334
+Epoch: 8, Steps: 14 | Train Loss: 0.0817196 Vali Loss: 0.1534854 Test Loss: 0.1517578
+Validation loss decreased (0.154048 --> 0.153485).  Saving model ...
+Updating learning rate to 7.8125e-06
+Epoch: 9 cost time: 2.9307219982147217
+Epoch: 9, Steps: 14 | Train Loss: 0.0870185 Vali Loss: 0.1523039 Test Loss: 0.1513724
+Validation loss decreased (0.153485 --> 0.152304).  Saving model ...
+Updating learning rate to 3.90625e-06
+Epoch: 10 cost time: 3.534271001815796
+Epoch: 10, Steps: 14 | Train Loss: 0.0820626 Vali Loss: 0.1529488 Test Loss: 0.1512485
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 1.953125e-06
+Epoch: 11 cost time: 2.5739214420318604
+Epoch: 11, Steps: 14 | Train Loss: 0.0819560 Vali Loss: 0.1523793 Test Loss: 0.1511684
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 9.765625e-07
+Epoch: 12 cost time: 2.590853214263916
+Epoch: 12, Steps: 14 | Train Loss: 0.0924097 Vali Loss: 0.1520247 Test Loss: 0.1511333
+Validation loss decreased (0.152304 --> 0.152025).  Saving model ...
+Updating learning rate to 4.8828125e-07
+Epoch: 13 cost time: 3.045680046081543
+Epoch: 13, Steps: 14 | Train Loss: 0.0801070 Vali Loss: 0.1528101 Test Loss: 0.1511165
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 2.44140625e-07
+Epoch: 14 cost time: 3.2179770469665527
+Epoch: 14, Steps: 14 | Train Loss: 0.0825616 Vali Loss: 0.1529760 Test Loss: 0.1511093
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 1.220703125e-07
+Epoch: 15 cost time: 2.2545664310455322
+Epoch: 15, Steps: 14 | Train Loss: 0.0779430 Vali Loss: 0.1512754 Test Loss: 0.1511123
+Validation loss decreased (0.152025 --> 0.151275).  Saving model ...
+Updating learning rate to 6.103515625e-08
+>>>>>>>testing : long_term_forecast_csi300_80_1_TimeXer_custom_ftM_sl80_ll40_pl1_dm512_nh8_el3_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 976
+test shape: (976, 1, 6) (976, 1, 6)
+test shape: (976, 1, 6) (976, 1, 6)
+mse:0.141863152384758, mae:0.20013046264648438, dtw:Not calculated
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_7         Model:              TimeXer             
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           7                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           3                   
+  d layers:           1                   d FF:               512                 
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.001               
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_7_TimeXer_custom_ftM_sl80_ll40_pl7_dm512_nh8_el3_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3332
+val 484
+test 970
+Epoch: 1 cost time: 5.588876724243164
+Epoch: 1, Steps: 14 | Train Loss: 0.2629609 Vali Loss: 0.1991706 Test Loss: 0.1961180
+Validation loss decreased (inf --> 0.199171).  Saving model ...
+Updating learning rate to 0.001
+Epoch: 2 cost time: 2.365485668182373
+Epoch: 2, Steps: 14 | Train Loss: 0.1013176 Vali Loss: 0.1623235 Test Loss: 0.1632426
+Validation loss decreased (0.199171 --> 0.162324).  Saving model ...
+Updating learning rate to 0.0005
+Epoch: 3 cost time: 2.5666112899780273
+Epoch: 3, Steps: 14 | Train Loss: 0.0788736 Vali Loss: 0.1295897 Test Loss: 0.1378741
+Validation loss decreased (0.162324 --> 0.129590).  Saving model ...
+Updating learning rate to 0.00025
+Epoch: 4 cost time: 2.6903319358825684
+Epoch: 4, Steps: 14 | Train Loss: 0.0714749 Vali Loss: 0.1199027 Test Loss: 0.1284310
+Validation loss decreased (0.129590 --> 0.119903).  Saving model ...
+Updating learning rate to 0.000125
+Epoch: 5 cost time: 2.6143319606781006
+Epoch: 5, Steps: 14 | Train Loss: 0.0781958 Vali Loss: 0.1183488 Test Loss: 0.1299182
+Validation loss decreased (0.119903 --> 0.118349).  Saving model ...
+Updating learning rate to 6.25e-05
+Epoch: 6 cost time: 2.7485809326171875
+Epoch: 6, Steps: 14 | Train Loss: 0.0865394 Vali Loss: 0.1206694 Test Loss: 0.1293104
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 3.125e-05
+Epoch: 7 cost time: 2.3352363109588623
+Epoch: 7, Steps: 14 | Train Loss: 0.0788585 Vali Loss: 0.1200334 Test Loss: 0.1278214
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 1.5625e-05
+Epoch: 8 cost time: 2.5992634296417236
+Epoch: 8, Steps: 14 | Train Loss: 0.0686468 Vali Loss: 0.1204762 Test Loss: 0.1269933
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_7_TimeXer_custom_ftM_sl80_ll40_pl7_dm512_nh8_el3_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 970
+test shape: (970, 7, 6) (970, 7, 6)
+test shape: (970, 7, 6) (970, 7, 6)
+mse:0.11949445307254791, mae:0.1695012003183365, dtw:Not calculated
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_80        Model:              TimeXer             
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           20                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           3                   
+  d layers:           1                   d FF:               512                 
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.001               
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_80_TimeXer_custom_ftM_sl80_ll40_pl20_dm512_nh8_el3_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3319
+val 471
+test 957
+Epoch: 1 cost time: 5.82358193397522
+Epoch: 1, Steps: 13 | Train Loss: 0.2447468 Vali Loss: 0.2724602 Test Loss: 0.2292253
+Validation loss decreased (inf --> 0.272460).  Saving model ...
+Updating learning rate to 0.001
+Epoch: 2 cost time: 2.604095220565796
+Epoch: 2, Steps: 13 | Train Loss: 0.1250391 Vali Loss: 0.2319966 Test Loss: 0.2055311
+Validation loss decreased (0.272460 --> 0.231997).  Saving model ...
+Updating learning rate to 0.0005
+Epoch: 3 cost time: 2.377859592437744
+Epoch: 3, Steps: 13 | Train Loss: 0.1099229 Vali Loss: 0.2272625 Test Loss: 0.2067565
+Validation loss decreased (0.231997 --> 0.227262).  Saving model ...
+Updating learning rate to 0.00025
+Epoch: 4 cost time: 2.2913079261779785
+Epoch: 4, Steps: 13 | Train Loss: 0.1057190 Vali Loss: 0.2273873 Test Loss: 0.2044547
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.000125
+Epoch: 5 cost time: 4.241713762283325
+Epoch: 5, Steps: 13 | Train Loss: 0.1023365 Vali Loss: 0.2209921 Test Loss: 0.1977595
+Validation loss decreased (0.227262 --> 0.220992).  Saving model ...
+Updating learning rate to 6.25e-05
+Epoch: 6 cost time: 3.731473922729492
+Epoch: 6, Steps: 13 | Train Loss: 0.0997137 Vali Loss: 0.2260651 Test Loss: 0.1995631
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 3.125e-05
+Epoch: 7 cost time: 2.559582233428955
+Epoch: 7, Steps: 13 | Train Loss: 0.0988576 Vali Loss: 0.2259661 Test Loss: 0.1996073
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 1.5625e-05
+Epoch: 8 cost time: 2.419325590133667
+Epoch: 8, Steps: 13 | Train Loss: 0.0990012 Vali Loss: 0.2260651 Test Loss: 0.2001259
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_80_TimeXer_custom_ftM_sl80_ll40_pl20_dm512_nh8_el3_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 957
+test shape: (957, 20, 6) (957, 20, 6)
+test shape: (957, 20, 6) (957, 20, 6)
+mse:0.17705456912517548, mae:0.22243136167526245, dtw:Not calculated
+
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_1         Model:              TimesNet            
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           1                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               512                 
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.0001              
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_1_TimesNet_custom_ftM_sl80_ll40_pl1_dm512_nh8_el2_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3338
+val 490
+test 976
+Epoch: 1 cost time: 31.05167531967163
+Epoch: 1, Steps: 14 | Train Loss: 0.0845899 Vali Loss: 0.1579333 Test Loss: 0.1547772
+Validation loss decreased (inf --> 0.157933).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2 cost time: 27.470245361328125
+Epoch: 2, Steps: 14 | Train Loss: 0.0602583 Vali Loss: 0.1093526 Test Loss: 0.1338184
+Validation loss decreased (0.157933 --> 0.109353).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3 cost time: 27.69906449317932
+Epoch: 3, Steps: 14 | Train Loss: 0.0445097 Vali Loss: 0.0927038 Test Loss: 0.1058593
+Validation loss decreased (0.109353 --> 0.092704).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4 cost time: 28.085858583450317
+Epoch: 4, Steps: 14 | Train Loss: 0.0384456 Vali Loss: 0.0877684 Test Loss: 0.0993105
+Validation loss decreased (0.092704 --> 0.087768).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5 cost time: 28.138197660446167
+Epoch: 5, Steps: 14 | Train Loss: 0.0330444 Vali Loss: 0.0868215 Test Loss: 0.0991940
+Validation loss decreased (0.087768 --> 0.086821).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6 cost time: 28.644211769104004
+Epoch: 6, Steps: 14 | Train Loss: 0.0320936 Vali Loss: 0.0854257 Test Loss: 0.0965367
+Validation loss decreased (0.086821 --> 0.085426).  Saving model ...
+Updating learning rate to 3.125e-06
+Epoch: 7 cost time: 28.00451922416687
+Epoch: 7, Steps: 14 | Train Loss: 0.0319885 Vali Loss: 0.0856728 Test Loss: 0.0955861
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 1.5625e-06
+Epoch: 8 cost time: 27.939379692077637
+Epoch: 8, Steps: 14 | Train Loss: 0.0324557 Vali Loss: 0.0922744 Test Loss: 0.0954515
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 7.8125e-07
+Epoch: 9 cost time: 28.26382088661194
+Epoch: 9, Steps: 14 | Train Loss: 0.0315069 Vali Loss: 0.0858518 Test Loss: 0.0953152
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_1_TimesNet_custom_ftM_sl80_ll40_pl1_dm512_nh8_el2_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 976
+test shape: (976, 1, 6) (976, 1, 6)
+test shape: (976, 1, 6) (976, 1, 6)
+mse:0.0903533548116684, mae:0.15407000482082367, dtw:Not calculated
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_7         Model:              TimesNet            
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           7                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               512                 
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.0001              
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_7_TimesNet_custom_ftM_sl80_ll40_pl7_dm512_nh8_el2_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3332
+val 484
+test 970
+Epoch: 1 cost time: 33.36796498298645
+Epoch: 1, Steps: 14 | Train Loss: 0.1325350 Vali Loss: 0.2008874 Test Loss: 0.2274501
+Validation loss decreased (inf --> 0.200887).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2 cost time: 30.401339292526245
+Epoch: 2, Steps: 14 | Train Loss: 0.0864743 Vali Loss: 0.1665401 Test Loss: 0.1758733
+Validation loss decreased (0.200887 --> 0.166540).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3 cost time: 30.099226713180542
+Epoch: 3, Steps: 14 | Train Loss: 0.0623173 Vali Loss: 0.1560524 Test Loss: 0.1760914
+Validation loss decreased (0.166540 --> 0.156052).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4 cost time: 30.465594053268433
+Epoch: 4, Steps: 14 | Train Loss: 0.0562462 Vali Loss: 0.1508703 Test Loss: 0.1685173
+Validation loss decreased (0.156052 --> 0.150870).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5 cost time: 30.35633611679077
+Epoch: 5, Steps: 14 | Train Loss: 0.0507107 Vali Loss: 0.1527832 Test Loss: 0.1740773
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 6.25e-06
+Epoch: 6 cost time: 30.48575496673584
+Epoch: 6, Steps: 14 | Train Loss: 0.0502271 Vali Loss: 0.1498002 Test Loss: 0.1699325
+Validation loss decreased (0.150870 --> 0.149800).  Saving model ...
+Updating learning rate to 3.125e-06
+Epoch: 7 cost time: 30.802839756011963
+Epoch: 7, Steps: 14 | Train Loss: 0.0485132 Vali Loss: 0.1475278 Test Loss: 0.1694265
+Validation loss decreased (0.149800 --> 0.147528).  Saving model ...
+Updating learning rate to 1.5625e-06
+Epoch: 8 cost time: 30.685240745544434
+Epoch: 8, Steps: 14 | Train Loss: 0.0477523 Vali Loss: 0.1487072 Test Loss: 0.1706149
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 7.8125e-07
+Epoch: 9 cost time: 30.51402473449707
+Epoch: 9, Steps: 14 | Train Loss: 0.0482066 Vali Loss: 0.1483144 Test Loss: 0.1706470
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 3.90625e-07
+Epoch: 10 cost time: 30.330703020095825
+Epoch: 10, Steps: 14 | Train Loss: 0.0490359 Vali Loss: 0.1494972 Test Loss: 0.1704518
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_7_TimesNet_custom_ftM_sl80_ll40_pl7_dm512_nh8_el2_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 970
+test shape: (970, 7, 6) (970, 7, 6)
+test shape: (970, 7, 6) (970, 7, 6)
+mse:0.1555067002773285, mae:0.20370158553123474, dtw:Not calculated
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_80        Model:              TimesNet            
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           20                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               512                 
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.0001              
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_80_TimesNet_custom_ftM_sl80_ll40_pl20_dm512_nh8_el2_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3319
+val 471
+test 957
+Epoch: 1 cost time: 37.56063628196716
+Epoch: 1, Steps: 13 | Train Loss: 0.1635381 Vali Loss: 0.3058571 Test Loss: 0.2621331
+Validation loss decreased (inf --> 0.305857).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2 cost time: 34.15985107421875
+Epoch: 2, Steps: 13 | Train Loss: 0.1063059 Vali Loss: 0.2676197 Test Loss: 0.2564903
+Validation loss decreased (0.305857 --> 0.267620).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3 cost time: 34.589142084121704
+Epoch: 3, Steps: 13 | Train Loss: 0.0896084 Vali Loss: 0.2690178 Test Loss: 0.2411030
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 2.5e-05
+Epoch: 4 cost time: 34.59008598327637
+Epoch: 4, Steps: 13 | Train Loss: 0.0825215 Vali Loss: 0.2539448 Test Loss: 0.2334473
+Validation loss decreased (0.267620 --> 0.253945).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5 cost time: 34.7088508605957
+Epoch: 5, Steps: 13 | Train Loss: 0.0788703 Vali Loss: 0.2477887 Test Loss: 0.2308076
+Validation loss decreased (0.253945 --> 0.247789).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6 cost time: 34.93912744522095
+Epoch: 6, Steps: 13 | Train Loss: 0.0767841 Vali Loss: 0.2575979 Test Loss: 0.2320170
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 3.125e-06
+Epoch: 7 cost time: 34.65171551704407
+Epoch: 7, Steps: 13 | Train Loss: 0.0759402 Vali Loss: 0.2545996 Test Loss: 0.2323761
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 1.5625e-06
+Epoch: 8 cost time: 34.725056409835815
+Epoch: 8, Steps: 13 | Train Loss: 0.0753596 Vali Loss: 0.2511343 Test Loss: 0.2305737
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_80_TimesNet_custom_ftM_sl80_ll40_pl20_dm512_nh8_el2_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 957
+test shape: (957, 20, 6) (957, 20, 6)
+test shape: (957, 20, 6) (957, 20, 6)
+mse:0.20828421413898468, mae:0.2532147765159607, dtw:Not calculated
+
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_1         Model:              Transformer         
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           1                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.0001              
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_1_Transformer_custom_ftM_sl80_ll40_pl1_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3338
+val 490
+test 976
+Epoch: 1 cost time: 6.825281858444214
+Epoch: 1, Steps: 14 | Train Loss: 0.3740428 Vali Loss: 0.2182384 Test Loss: 0.2867799
+Validation loss decreased (inf --> 0.218238).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2 cost time: 3.881652355194092
+Epoch: 2, Steps: 14 | Train Loss: 0.1273672 Vali Loss: 0.0981349 Test Loss: 0.1856195
+Validation loss decreased (0.218238 --> 0.098135).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3 cost time: 4.367671489715576
+Epoch: 3, Steps: 14 | Train Loss: 0.0850527 Vali Loss: 0.0801620 Test Loss: 0.1330143
+Validation loss decreased (0.098135 --> 0.080162).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4 cost time: 3.456904649734497
+Epoch: 4, Steps: 14 | Train Loss: 0.0667787 Vali Loss: 0.0749458 Test Loss: 0.1435317
+Validation loss decreased (0.080162 --> 0.074946).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5 cost time: 3.6297998428344727
+Epoch: 5, Steps: 14 | Train Loss: 0.0621902 Vali Loss: 0.0724227 Test Loss: 0.1382160
+Validation loss decreased (0.074946 --> 0.072423).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6 cost time: 3.764928102493286
+Epoch: 6, Steps: 14 | Train Loss: 0.0612034 Vali Loss: 0.0725398 Test Loss: 0.1370772
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 3.125e-06
+Epoch: 7 cost time: 3.3190741539001465
+Epoch: 7, Steps: 14 | Train Loss: 0.0594434 Vali Loss: 0.0731631 Test Loss: 0.1405598
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 1.5625e-06
+Epoch: 8 cost time: 4.895876169204712
+Epoch: 8, Steps: 14 | Train Loss: 0.0589547 Vali Loss: 0.0719205 Test Loss: 0.1370720
+Validation loss decreased (0.072423 --> 0.071920).  Saving model ...
+Updating learning rate to 7.8125e-07
+Epoch: 9 cost time: 3.526710271835327
+Epoch: 9, Steps: 14 | Train Loss: 0.0596957 Vali Loss: 0.0709957 Test Loss: 0.1347699
+Validation loss decreased (0.071920 --> 0.070996).  Saving model ...
+Updating learning rate to 3.90625e-07
+Epoch: 10 cost time: 3.5131583213806152
+Epoch: 10, Steps: 14 | Train Loss: 0.0685888 Vali Loss: 0.0709290 Test Loss: 0.1336621
+Validation loss decreased (0.070996 --> 0.070929).  Saving model ...
+Updating learning rate to 1.953125e-07
+Epoch: 11 cost time: 3.958246946334839
+Epoch: 11, Steps: 14 | Train Loss: 0.0587349 Vali Loss: 0.0710269 Test Loss: 0.1339072
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 9.765625e-08
+Epoch: 12 cost time: 3.265148401260376
+Epoch: 12, Steps: 14 | Train Loss: 0.0598100 Vali Loss: 0.0710750 Test Loss: 0.1338560
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 4.8828125e-08
+Epoch: 13 cost time: 3.5186517238616943
+Epoch: 13, Steps: 14 | Train Loss: 0.0581753 Vali Loss: 0.0713211 Test Loss: 0.1337428
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_1_Transformer_custom_ftM_sl80_ll40_pl1_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 976
+test shape: (976, 1, 6) (976, 1, 6)
+test shape: (976, 1, 6) (976, 1, 6)
+mse:0.12849503755569458, mae:0.24877983331680298, dtw:Not calculated
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_7         Model:              Transformer         
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           7                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.0001              
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_7_Transformer_custom_ftM_sl80_ll40_pl7_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3332
+val 484
+test 970
+Epoch: 1 cost time: 6.681410789489746
+Epoch: 1, Steps: 14 | Train Loss: 0.4463236 Vali Loss: 0.3637690 Test Loss: 0.3553943
+Validation loss decreased (inf --> 0.363769).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2 cost time: 3.826063632965088
+Epoch: 2, Steps: 14 | Train Loss: 0.1943397 Vali Loss: 0.2220718 Test Loss: 0.2418962
+Validation loss decreased (0.363769 --> 0.222072).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3 cost time: 4.50053071975708
+Epoch: 3, Steps: 14 | Train Loss: 0.1380949 Vali Loss: 0.1949905 Test Loss: 0.1922092
+Validation loss decreased (0.222072 --> 0.194991).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4 cost time: 4.267789602279663
+Epoch: 4, Steps: 14 | Train Loss: 0.1233590 Vali Loss: 0.1848800 Test Loss: 0.1933267
+Validation loss decreased (0.194991 --> 0.184880).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5 cost time: 4.381608724594116
+Epoch: 5, Steps: 14 | Train Loss: 0.1205044 Vali Loss: 0.1770203 Test Loss: 0.1918387
+Validation loss decreased (0.184880 --> 0.177020).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6 cost time: 3.667314052581787
+Epoch: 6, Steps: 14 | Train Loss: 0.1191490 Vali Loss: 0.1762571 Test Loss: 0.1889010
+Validation loss decreased (0.177020 --> 0.176257).  Saving model ...
+Updating learning rate to 3.125e-06
+Epoch: 7 cost time: 4.654893636703491
+Epoch: 7, Steps: 14 | Train Loss: 0.1146360 Vali Loss: 0.1739109 Test Loss: 0.1880123
+Validation loss decreased (0.176257 --> 0.173911).  Saving model ...
+Updating learning rate to 1.5625e-06
+Epoch: 8 cost time: 3.894108295440674
+Epoch: 8, Steps: 14 | Train Loss: 0.1155438 Vali Loss: 0.1755792 Test Loss: 0.1874087
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 7.8125e-07
+Epoch: 9 cost time: 5.862049579620361
+Epoch: 9, Steps: 14 | Train Loss: 0.1201266 Vali Loss: 0.1752093 Test Loss: 0.1869999
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 3.90625e-07
+Epoch: 10 cost time: 4.723498344421387
+Epoch: 10, Steps: 14 | Train Loss: 0.1153675 Vali Loss: 0.1745335 Test Loss: 0.1869807
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_7_Transformer_custom_ftM_sl80_ll40_pl7_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 970
+test shape: (970, 7, 6) (970, 7, 6)
+test shape: (970, 7, 6) (970, 7, 6)
+mse:0.17595405876636505, mae:0.2660442292690277, dtw:Not calculated
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_80        Model:              Transformer         
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           20                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           2                   
+  d layers:           1                   d FF:               2048                
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.0001              
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_80_Transformer_custom_ftM_sl80_ll40_pl20_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3319
+val 471
+test 957
+Epoch: 1 cost time: 8.326459407806396
+Epoch: 1, Steps: 13 | Train Loss: 0.4713204 Vali Loss: 0.5247560 Test Loss: 0.4755425
+Validation loss decreased (inf --> 0.524756).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2 cost time: 3.699580430984497
+Epoch: 2, Steps: 13 | Train Loss: 0.2245156 Vali Loss: 0.2801615 Test Loss: 0.2727170
+Validation loss decreased (0.524756 --> 0.280161).  Saving model ...
+Updating learning rate to 5e-05
+Epoch: 3 cost time: 3.5856449604034424
+Epoch: 3, Steps: 13 | Train Loss: 0.1781057 Vali Loss: 0.2951644 Test Loss: 0.2632999
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 2.5e-05
+Epoch: 4 cost time: 3.7102484703063965
+Epoch: 4, Steps: 13 | Train Loss: 0.1658270 Vali Loss: 0.2745231 Test Loss: 0.2458331
+Validation loss decreased (0.280161 --> 0.274523).  Saving model ...
+Updating learning rate to 1.25e-05
+Epoch: 5 cost time: 4.4370667934417725
+Epoch: 5, Steps: 13 | Train Loss: 0.1601854 Vali Loss: 0.2652651 Test Loss: 0.2419479
+Validation loss decreased (0.274523 --> 0.265265).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6 cost time: 3.8851566314697266
+Epoch: 6, Steps: 13 | Train Loss: 0.1567754 Vali Loss: 0.2717065 Test Loss: 0.2430999
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 3.125e-06
+Epoch: 7 cost time: 3.7574596405029297
+Epoch: 7, Steps: 13 | Train Loss: 0.1560048 Vali Loss: 0.2689344 Test Loss: 0.2425646
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 1.5625e-06
+Epoch: 8 cost time: 3.9731154441833496
+Epoch: 8, Steps: 13 | Train Loss: 0.1551471 Vali Loss: 0.2671726 Test Loss: 0.2422166
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_80_Transformer_custom_ftM_sl80_ll40_pl20_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 957
+test shape: (957, 20, 6) (957, 20, 6)
+test shape: (957, 20, 6) (957, 20, 6)
+mse:0.22210903465747833, mae:0.29614195227622986, dtw:Not calculated
+
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_1         Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           1                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           4                   
+  d layers:           1                   d FF:               512                 
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.001               
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_1_iTransformer_custom_ftM_sl80_ll40_pl1_dm512_nh8_el4_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3338
+val 490
+test 976
+Epoch: 1 cost time: 5.8994059562683105
+Epoch: 1, Steps: 14 | Train Loss: 0.5352614 Vali Loss: 0.2079236 Test Loss: 0.1776740
+Validation loss decreased (inf --> 0.207924).  Saving model ...
+Updating learning rate to 0.001
+Epoch: 2 cost time: 3.16799259185791
+Epoch: 2, Steps: 14 | Train Loss: 0.0549453 Vali Loss: 0.1819288 Test Loss: 0.1558516
+Validation loss decreased (0.207924 --> 0.181929).  Saving model ...
+Updating learning rate to 0.0005
+Epoch: 3 cost time: 3.2041099071502686
+Epoch: 3, Steps: 14 | Train Loss: 0.0654311 Vali Loss: 0.0986872 Test Loss: 0.0977920
+Validation loss decreased (0.181929 --> 0.098687).  Saving model ...
+Updating learning rate to 0.00025
+Epoch: 4 cost time: 3.2353665828704834
+Epoch: 4, Steps: 14 | Train Loss: 0.0427173 Vali Loss: 0.0840819 Test Loss: 0.1026772
+Validation loss decreased (0.098687 --> 0.084082).  Saving model ...
+Updating learning rate to 0.000125
+Epoch: 5 cost time: 2.5120997428894043
+Epoch: 5, Steps: 14 | Train Loss: 0.0344715 Vali Loss: 0.0669732 Test Loss: 0.0877373
+Validation loss decreased (0.084082 --> 0.066973).  Saving model ...
+Updating learning rate to 6.25e-05
+Epoch: 6 cost time: 2.4897091388702393
+Epoch: 6, Steps: 14 | Train Loss: 0.0303351 Vali Loss: 0.0604270 Test Loss: 0.0824839
+Validation loss decreased (0.066973 --> 0.060427).  Saving model ...
+Updating learning rate to 3.125e-05
+Epoch: 7 cost time: 2.622530698776245
+Epoch: 7, Steps: 14 | Train Loss: 0.0295579 Vali Loss: 0.0638987 Test Loss: 0.0845821
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 1.5625e-05
+Epoch: 8 cost time: 2.628638744354248
+Epoch: 8, Steps: 14 | Train Loss: 0.0279455 Vali Loss: 0.0629482 Test Loss: 0.0835979
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 7.8125e-06
+Epoch: 9 cost time: 2.6617650985717773
+Epoch: 9, Steps: 14 | Train Loss: 0.0288012 Vali Loss: 0.0613874 Test Loss: 0.0832795
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_1_iTransformer_custom_ftM_sl80_ll40_pl1_dm512_nh8_el4_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 976
+test shape: (976, 1, 6) (976, 1, 6)
+test shape: (976, 1, 6) (976, 1, 6)
+mse:0.07681416720151901, mae:0.13554908335208893, dtw:Not calculated
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_7         Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           7                   Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           4                   
+  d layers:           1                   d FF:               512                 
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       15                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.001               
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_7_iTransformer_custom_ftM_sl80_ll40_pl7_dm512_nh8_el4_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3332
+val 484
+test 970
+Epoch: 1 cost time: 6.243212938308716
+Epoch: 1, Steps: 14 | Train Loss: 0.1709255 Vali Loss: 0.2093357 Test Loss: 0.2135088
+Validation loss decreased (inf --> 0.209336).  Saving model ...
+Updating learning rate to 0.001
+Epoch: 2 cost time: 2.6847734451293945
+Epoch: 2, Steps: 14 | Train Loss: 0.0985918 Vali Loss: 0.1854364 Test Loss: 0.1839640
+Validation loss decreased (0.209336 --> 0.185436).  Saving model ...
+Updating learning rate to 0.0005
+Epoch: 3 cost time: 3.532075881958008
+Epoch: 3, Steps: 14 | Train Loss: 0.0815090 Vali Loss: 0.1459142 Test Loss: 0.1663555
+Validation loss decreased (0.185436 --> 0.145914).  Saving model ...
+Updating learning rate to 0.00025
+Epoch: 4 cost time: 2.5115325450897217
+Epoch: 4, Steps: 14 | Train Loss: 0.0645905 Vali Loss: 0.1432487 Test Loss: 0.1528860
+Validation loss decreased (0.145914 --> 0.143249).  Saving model ...
+Updating learning rate to 0.000125
+Epoch: 5 cost time: 3.116189956665039
+Epoch: 5, Steps: 14 | Train Loss: 0.0584118 Vali Loss: 0.1508474 Test Loss: 0.1617072
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 6.25e-05
+Epoch: 6 cost time: 2.484286069869995
+Epoch: 6, Steps: 14 | Train Loss: 0.0544436 Vali Loss: 0.1429383 Test Loss: 0.1575003
+Validation loss decreased (0.143249 --> 0.142938).  Saving model ...
+Updating learning rate to 3.125e-05
+Epoch: 7 cost time: 2.5909159183502197
+Epoch: 7, Steps: 14 | Train Loss: 0.0505439 Vali Loss: 0.1402183 Test Loss: 0.1554762
+Validation loss decreased (0.142938 --> 0.140218).  Saving model ...
+Updating learning rate to 1.5625e-05
+Epoch: 8 cost time: 3.7650530338287354
+Epoch: 8, Steps: 14 | Train Loss: 0.0545751 Vali Loss: 0.1400311 Test Loss: 0.1549713
+Validation loss decreased (0.140218 --> 0.140031).  Saving model ...
+Updating learning rate to 7.8125e-06
+Epoch: 9 cost time: 2.732579469680786
+Epoch: 9, Steps: 14 | Train Loss: 0.0497500 Vali Loss: 0.1443232 Test Loss: 0.1580988
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 3.90625e-06
+Epoch: 10 cost time: 3.176196336746216
+Epoch: 10, Steps: 14 | Train Loss: 0.0520373 Vali Loss: 0.1455884 Test Loss: 0.1581455
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 1.953125e-06
+Epoch: 11 cost time: 3.4998109340667725
+Epoch: 11, Steps: 14 | Train Loss: 0.0490088 Vali Loss: 0.1435083 Test Loss: 0.1578735
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_7_iTransformer_custom_ftM_sl80_ll40_pl7_dm512_nh8_el4_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 970
+test shape: (970, 7, 6) (970, 7, 6)
+test shape: (970, 7, 6) (970, 7, 6)
+mse:0.14207078516483307, mae:0.18975074589252472, dtw:Not calculated
+Using GPU
+Args in experiment:
+[1mBasic Config[0m
+  Task Name:          long_term_forecast  Is Training:        1                   
+  Model ID:           csi300_80_80        Model:              iTransformer        
+
+[1mData Loader[0m
+  Data:               custom              Root Path:          ./dataset/csi300/   
+  Data Path:          csi300.csv          Features:           M                   
+  Target:             close               Freq:               d                   
+  Checkpoints:        ./checkpoints/      
+
+[1mForecasting Task[0m
+  Seq Len:            80                  Label Len:          40                  
+  Pred Len:           20                  Seasonal Patterns:  Monthly             
+  Inverse:            0                   
+
+[1mModel Parameters[0m
+  Top k:              5                   Num Kernels:        6                   
+  Enc In:             6                   Dec In:             6                   
+  C Out:              6                   d model:            512                 
+  n heads:            8                   e layers:           4                   
+  d layers:           1                   d FF:               512                 
+  Moving Avg:         25                  Factor:             3                   
+  Distil:             1                   Dropout:            0.1                 
+  Embed:              timeF               Activation:         gelu                
+
+[1mRun Parameters[0m
+  Num Workers:        10                  Itr:                1                   
+  Train Epochs:       20                  Batch Size:         256                 
+  Patience:           3                   Learning Rate:      0.001               
+  Des:                Exp                 Loss:               MSE                 
+  Lradj:              type1               Use Amp:            0                   
+
+[1mGPU[0m
+  Use GPU:            1                   GPU:                0                   
+  Use Multi GPU:      0                   Devices:            0,1,2,3             
+
+[1mDe-stationary Projector Params[0m
+  P Hidden Dims:      128, 128            P Hidden Layers:    2                   
+
+Use GPU: cuda:0
+>>>>>>>start training : long_term_forecast_csi300_80_80_iTransformer_custom_ftM_sl80_ll40_pl20_dm512_nh8_el4_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 3319
+val 471
+test 957
+Epoch: 1 cost time: 12.099080801010132
+Epoch: 1, Steps: 13 | Train Loss: 0.1767714 Vali Loss: 0.2698599 Test Loss: 0.2418747
+Validation loss decreased (inf --> 0.269860).  Saving model ...
+Updating learning rate to 0.001
+Epoch: 2 cost time: 2.8115432262420654
+Epoch: 2, Steps: 13 | Train Loss: 0.1086465 Vali Loss: 0.2465496 Test Loss: 0.2295043
+Validation loss decreased (0.269860 --> 0.246550).  Saving model ...
+Updating learning rate to 0.0005
+Epoch: 3 cost time: 2.599684715270996
+Epoch: 3, Steps: 13 | Train Loss: 0.0909028 Vali Loss: 0.2537155 Test Loss: 0.2222984
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00025
+Epoch: 4 cost time: 2.9557061195373535
+Epoch: 4, Steps: 13 | Train Loss: 0.0799177 Vali Loss: 0.2461372 Test Loss: 0.2168881
+Validation loss decreased (0.246550 --> 0.246137).  Saving model ...
+Updating learning rate to 0.000125
+Epoch: 5 cost time: 2.5471272468566895
+Epoch: 5, Steps: 13 | Train Loss: 0.0734736 Vali Loss: 0.2600322 Test Loss: 0.2173691
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 6.25e-05
+Epoch: 6 cost time: 3.0779764652252197
+Epoch: 6, Steps: 13 | Train Loss: 0.0699690 Vali Loss: 0.2548507 Test Loss: 0.2154614
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 3.125e-05
+Epoch: 7 cost time: 3.1074390411376953
+Epoch: 7, Steps: 13 | Train Loss: 0.0684233 Vali Loss: 0.2510513 Test Loss: 0.2162154
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : long_term_forecast_csi300_80_80_iTransformer_custom_ftM_sl80_ll40_pl20_dm512_nh8_el4_dl1_df512_expand2_dc4_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 957
+test shape: (957, 20, 6) (957, 20, 6)
+test shape: (957, 20, 6) (957, 20, 6)
+mse:0.19662809371948242, mae:0.2396911084651947, dtw:Not calculated
+
+

@@ -1,6 +1,6 @@
  
 
-model_name=Autoformer
+model_name=DLinear
 
 python -u run.py \
   --task_name long_term_forecast \
